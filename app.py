@@ -207,7 +207,7 @@ with tabs[1]:
             df_coef = df_coef.sort_values("Coefficient", key=abs, ascending=True)
             colors  = [COLORS["green"] if c > 0 else COLORS["red"] for c in df_coef["Coefficient"]]
             fig_c = go.Figure(go.Bar(x=df_coef["Coefficient"], y=df_coef["Feature"], orientation="h", marker_color=colors))
-            fig_c.update_layout(**PLOT_LAYOUT, title=f"{tk} Coefficients", height=280, margin=dict(l=60, r=20, t=40, b=20))
+            fig_c.update_layout(**{**PLOT_LAYOUT, "margin": dict(l=60, r=20, t=40, b=20)}, title=f"{tk} Coefficients", height=280)
             st.plotly_chart(fig_c, use_container_width=True)
 
 # ── Tab 3: Backtesting ────────────────────────────────────────────────────────
